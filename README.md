@@ -33,7 +33,7 @@ nodemon server.js
 6. 아래 제공되는 테스트 아이디와 비밀번호로 로그인.
 
 ## 실제 사이트 주소
-- 주소: http://bible365.kro.kr/
+- 주소: http://bible365.kro.kr
 - 테스트ID : test
 - password : 12341234
 
