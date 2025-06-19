@@ -32,7 +32,7 @@ nodemon server.js
 5. Raspberry Pi에서 자동 실행을 설정하면 매일 자정 자동 반영됩니다.
 6. 아래 제공되는 테스트 아이디와 비밀번호로 로그인.
 
-## 실제 사이트 주소
+## 사이트 주소
 - 주소: http://bible365.kro.kr
 - 테스트ID : test
 - password : 12341234
