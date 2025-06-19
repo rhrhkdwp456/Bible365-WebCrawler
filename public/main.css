@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR';
+  padding-top: 70px;
+}
+
+body * {
+  font-family: 'Noto Sans KR';
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+input,
+div {
+  box-sizing: border-box;
+}
+
+.form-box {
+  background: white;
+  border-radius: 8px;
+  width: 95%;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 50px;
+}
+
+.form-box input, .form-box textarea{
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.grey-bg {
+  background: #eee;
+}
+.white-bg {
+  padding: 15px;
+  background: white;
+  width: 95%;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+.white-bg-list{
+  padding: 15px;
+  padding-left: 5px;
+  background: white;
+  width: 95%;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.contemplation{
+  background: white;
+  padding: 5px;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.list-box {
+  padding : 10px;
+  padding-left: 0;
+  border-bottom: 1px solid#eee;
+}
+.list-box h4{
+  font-size: 20px;
+  margin: 5px;
+  font-weight: 800;
+}
+.list-box h4 span{
+  font-size: 17px;
+}
+.list-box p {
+  font-size: 18px;
+  margin: 5px;
+  color: grey;
+}
+.title-ment{
+  padding: 20px;
+  padding-bottom: 10px;
+}
+.title-ment h2{
+  font-size: 35px;
+  text-align: center;
+  font-weight: 700;
+}
+.title-ment span{
+  font-weight: 800;
+  color: #2978B5;
+}
+.mypage{
+  width: 90%;
+  background: eee;
+  color: black;
+  padding: 5px;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.mypage h3{
+  text-align: right;
+  font-weight: 700;
+  font-size: 25px;
+}
+.qt-box{
+  padding-top: 10px;
+}
+.qt-box h3{
+  color: #2978B5;
+  font-weight: 700;
+  font-size: 22px;
+}
+.words-title{
+  font-weight: 800;
+}
+.words-main, .words-who, .words-lesson, .words-pray, .words-text{
+   word-break: keep-all;
+   line-height: 2;
+   font-size: 18px;
+}
+
+.delete, .authority, .ch-pw{
+  color: black;
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  border-radius: 5px;
+  background-color: #eee;
+}
+.edit{
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  background-color: #eee;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.givewords , .pray{
+  font-size: 16px;
+}
+.contemplation h4{
+  color: #03c75a;
+  font-weight: 800;
+}
+
+
+@media (max-width: 700px){
+  .list-box h4{
+    font-size: 17px;
+  }
+  .list-box h4 span{
+    font-size: 16px;
+  }
+  .list-box p {
+    font-size: 15px;
+
+  }
+  .list-box {
+    padding: 5px;
+  }
+  .mypage h3{
+    font-weight: 800;
+    font-size: 23px;
+  }
+  .title-ment{
+    padding-bottom: 0px;
+  }
+  .title-ment h2{
+    font-size:30px;
+    padding: 15px;
+    text-align: left;
+  }
+
+}
+
+@media (max-width: 400px){
+  .title-ment h2{
+    font-size:25px;
+  }
+  .list-box h4{
+    font-size: 17px;
+  }
+  .list-box h4 span{
+    font-size: 14px;
+  }
+  .list-box p {
+    font-size: 14px;
+  }
+}

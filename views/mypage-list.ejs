@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBLE365</title>
+    <link href="/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="grey-bg">
+    <%- include('nav.ejs') %>
+    <div class="mypage">
+        <h3><%= user.username %>님</h3> 
+        <p style="text-align: right; font-size: 24px;font-weight: 600;">Have a <span style="color: #2978B5; font-weight: 800;">QT</span> day!</p>
+    </div>
+    <% for (var i = 0; i < result.length; i++){ %>
+        
+        <div class="white-bg-list">
+            <div class="list-box">
+                <a href="/contemplation/detail/<%= result[i].words_id %>" style="text-decoration: none; color: black;"><h4><%= result[i].words_title %></h4></a>
+                <p><%= result[i].date %> <a class = "edit" href="/contemplation/edit/<%= result[i]._id %>" >수정</a><span class="delete" data-id="<%= result[i]._id %>">삭제</span></p>
+                
+            </div>
+        </div>
+      
+    <% } %> 
+  </body>
+  <script>
+    var i;
+    var totalDelete = document.querySelectorAll('.delete').length;
+    for( i = 0;i < totalDelete  ; i++){
+      document.querySelectorAll('.delete')[i].addEventListener('click', function(e){
+        if(confirm('선택한 게시글을 삭제하시겠습니까?')){
+          alert("정상적으로 삭제되었습니다.");
+          fetch('/contemplation/delete?docid=' + e.target.dataset.id, {
+            method : 'DELETE',
+          })
+          .then((r)=> r.text()) 
+          .then((r)=> {
+            console.log("delete sucess")
+            e.target.parentElement.parentElement.style.display ="none" 
+            location.reload();
+          })
+        } 
+    }
+  )}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBLE365</title>
+    <link href="/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="grey-bg">
+    <%- include('nav.ejs') %>
+    <div class="title-ment">
+        <h2>관리자 페이지</h2> 
+    </div>
+    
+    <% for (var i = 0; i < result.length; i++){ %>
+        <% if(result[i].authority == "youth" || result[i].authority == "MANAGER"){ %>
+          <div class="white-bg-list">
+            <div class="list-box">
+                <h4> 이름 : <%= result[i].username %> <span class="delete" data-id="<%= result[i]._id %>">삭제</span> <a style = "text-decoration-line: none;" href="/change/pw/<%= result[i]._id %>" ><span class="ch-pw">비밀번호 변경</span></a></h4>
+                <p> 아이디 : <%= result[i].userid %></p>
+                <p> 권한 : <%= result[i].authority %></p>
+            </div>
+        </div>
+        <% }else{ %>
+          <div class="white-bg-list">
+            <div class="list-box">
+                <h4> 이름 : <%= result[i].username %> <span class="delete" data-id="<%= result[i]._id %>">삭제</span> <span class="authority" data-id="<%= result[i]._id %>">권한 부여</span></h4>
+                <p> 아이디 : <%= result[i].userid %></p>
+                <p> 권한 : <%= result[i].authority %></p>
+            </div>
+        </div>
+        <% } %>
+        
+      
+    <% } %> 
+  </body>
+  
+  <script>
+    var i;
+    var totalDelete = document.querySelectorAll('.authority').length;
+    for( i = 0;i < totalDelete  ; i++){
+      document.querySelectorAll('.authority')[i].addEventListener('click', function(e){
+        if(confirm('선택한 회원에게 권한을 부여하시겠습니까?')){
+          alert("정상적으로 권한이 부되었습니다.");
+          fetch('/authority?docid=' + e.target.dataset.id, {
+            method : 'GET',
+          })
+          .then((r)=> r.text()) 
+          .then((r)=> {
+            console.log("add sucess")
+            location.reload();
+          })
+        } 
+    }
+  )}
+  </script>
+  <script>
+    var i;
+    var totalDelete = document.querySelectorAll('.delete').length;
+    for( i = 0;i < totalDelete  ; i++){
+      document.querySelectorAll('.delete')[i].addEventListener('click', function(e){
+        if(confirm('선택한 회원을 삭제 하시겠습니까?')){
+          alert("정상적으로 삭제되었습니다.");
+          fetch('/user/delete?docid=' + e.target.dataset.id, {
+            method : 'DELETE',
+          })
+          .then((r)=> r.text()) 
+          .then((r)=> {
+            console.log("delete sucess")
+            e.target.parentElement.parentElement.style.display ="none" 
+            location.reload();
+          })
+        } 
+    }
+  )}
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</html>
