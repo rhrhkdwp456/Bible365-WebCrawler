@@ -26,7 +26,7 @@ Raspberry Pi 환경에서 동작하며, node-cron을 이용해 매일 자정에 
 
 ```bash
 npm install
-nodemon server.js
+node server.js
 ```
 4. 브라우저에서 http://localhost:3000 접속.
 5. Raspberry Pi에서 자동 실행을 설정하면 매일 자정 자동 반영됩니다.
